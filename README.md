@@ -27,20 +27,20 @@ Things you may want to cover:
 
 ## users テーブル
 
-| Colum           | Type   | Options     |
-| --------------- | -----  | ----------- |
-| name            | string | null: false |
-| email           | string | null: false |
-| password        | string | null: false |
-| last_name       | string | null: false |
-| first_name      | string | null: false |
-| last_name_kana  | string | null: false |
-| first_name_kana | string | null: false |
-| birthday        | string | null: false |
+| Colum                      | Type   | Options                  |
+| -------------------------- | -----  | ------------------------ |
+| name                       | string | null: false, unique: true|
+| email                      | string | null: false              |
+| encrypted_password         | string | null: false              |
+| last_name                  | string | null: false              |
+| first_name                 | string | null: false              |
+| last_name_kana             | string | null: false              |
+| first_name_kana            | string | null: false              |
+| birthday                   | date   | null: false              |
 
 ### Association
 
-- has_many :item
+- has_many :items
 - has_many :orders
 
 ## items テーブル
@@ -51,7 +51,7 @@ Things you may want to cover:
 | name            | string     | null: false                   |
 | introduction    | text       | null: false                   |
 | price           | integer    | null: false                   |
-| category        | integer    | null: false                   |
+| category_id     | integer    | null: false                   |
 | item_condition  | integer    | null: false                   |
 | postage_payer   | integer    | null: false                   |
 | preparation_day | integer    | null: false                   |
@@ -62,13 +62,14 @@ Things you may want to cover:
 
 - belongs_to :user
 - has_one:order
+- has_one_attached :image
 
 ## orders テーブル
 
-| Colum  | Type   | Options                       |
-| ------ | -----  | ----------------------------- |
-| user   | string | null: false, foreign_key:true |
-| item   | string | null: false, foreign_key:true |
+| Colum  | Type       | Options                       |
+| ------ | ---------- | ----------------------------- |
+| user   | references | null: false, foreign_key:true |
+| item   | references | null: false, foreign_key:true |
 
 ### Association
 
@@ -79,7 +80,7 @@ Things you may want to cover:
 
 | Colum         | Type       | Options                       |
 | ------------- | ---------- | ----------------------------- |
-| orders        | references | null: false, foreign_key:true |
+| order        | references | null: false, foreign_key:true |
 | postcode      | string     | null: false,                  |
 | prefecture_id | integer    | null: false,                  |
 | city          | string     | null: false,                  |
