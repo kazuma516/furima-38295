@@ -53,7 +53,7 @@ Things you may want to cover:
 | price              | integer    | null: false                   |
 | category_id        | integer    | null: false                   |
 | item_condition_id  | integer    | null: false                   |
-| postage_payer_id   | integer    | null: false                   |
+| prefecture_id      | integer    | null: false                   |
 | preparation_day_id | integer    | null: false                   |
 | postage_type_id    | integer    | null: false                   |
 
