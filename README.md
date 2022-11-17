@@ -64,10 +64,10 @@ Things you may want to cover:
 
 ## orders テーブル
 
-| Colum  | Type       | Options                       |
-| ------ | ---------- | ----------------------------- |
-| user   | references | null: false, foreign_key:true |
-| item   | references | null: false, foreign_key:true |
+| Colum | Type       | Options                       |
+| ----  | ---------- | ----------------------------- |
+| user  | references | null: false, foreign_key:true |
+| item  | references | null: false, foreign_key:true |
 
 ### Association
 
