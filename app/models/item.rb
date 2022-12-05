@@ -25,9 +25,9 @@ class Item < ApplicationRecord
     validates :preparation_day_id
 
     validates :price, numericality: {greater_than_or_equal_to: 300,less_than_or_equal_to: 9_999_999 }
-    validates :price, numericality: { only_integer: true }
 end
 
+    validates :price, numericality: { only_integer: true }
 
 with_options numericality: { other_than: 0 } do
   validates :category_id
