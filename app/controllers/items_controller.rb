@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :authenticate_user!, except: [:index]
+  before_action :authenticate_user!, except: [:index, :show]
   #ログインしていないユーザーがトップ画面ではなく、ログイン画面に遷移す設定のコード
   
   #before_action :set_item, only: [:show, :edit, :update, :destroy]
@@ -39,8 +39,8 @@ class ItemsController < ApplicationController
     #end
   #end
 
-  #def show
-  #end
+  def show  
+  end
 
   #def destroy
     
