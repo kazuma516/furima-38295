@@ -21,8 +21,6 @@ class ItemsController < ApplicationController
    end
   end
 
-  private
-
   #def edit
     #if @item.user_id == current_user.id && @item.order.nill?
     #else
@@ -40,6 +38,7 @@ class ItemsController < ApplicationController
   #end
 
   def show  
+    @item = Item.find(params[:id])
   end
 
   #def destroy
