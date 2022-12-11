@@ -2,7 +2,7 @@ class ItemsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
   #ログインしていないユーザーがトップ画面ではなく、ログイン画面に遷移す設定のコード
   
-  #before_action :set_item, only: [:show, :edit, :update, :destroy]
+  before_action :set_item, only: [:show, :edit, :update,]
 
   def index
     @item = Item.includes(:user).order('created_at DESC')
@@ -21,11 +21,15 @@ class ItemsController < ApplicationController
    end
   end
 
+  def show  
+    @item = Item.find(params[:id])
+  end
+
   def edit
     @item = Item.find(params[:id])
     if @item.user_id == current_user.id #&& @item.order.nill?
-    else
-      redirect_to root_path
+    #else
+      #edirect_to root_path
     end
   end
 
@@ -39,9 +43,6 @@ class ItemsController < ApplicationController
     end
   end
 
-  def show  
-    @item = Item.find(params[:id])
-  end
 
   #def destroy
     
@@ -59,7 +60,7 @@ class ItemsController < ApplicationController
     params.require(:item).permit(:image, :name, :introduction, :price, :category_id, :item_condition_id, :prefecture_id, :preparation_day_id, :postage_type_id).merge(user_id: current_user.id)
   end
 
-  #def set_item
-    #@item = Item.find(params[:id])
-  #end
+  def set_item
+    @item = Item.find(params[:id])
+  end
 end
