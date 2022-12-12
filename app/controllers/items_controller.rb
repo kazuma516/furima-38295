@@ -2,7 +2,7 @@ class ItemsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
   #ログインしていないユーザーがトップ画面ではなく、ログイン画面に遷移す設定のコード
   
-  before_action :set_item, only: [:show, :edit, :update,]
+  before_action :set_item, only: [:show, :edit, :update]
 
   def index
     @item = Item.includes(:user).order('created_at DESC')
